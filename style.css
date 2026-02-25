@@ -154,58 +154,20 @@ p {
 	font-size: var(--fs-p);
 }
 
-sub,
-sup {
-	font-family: Lilex, ui-monospace,
-
-		SFMono-Regular,
-
-		'Cascadia Code',
-
-		'Source Code Pro',
-
-		Menlo,
-
-		Consolas,
-
-		'DejaVu Sans Mono',
-
-		monospace;
-	font-optical-sizing: auto;
-	font-style: normal;
-	font-size: 0.75rem;
-	font-weight: 500;
-	line-height: 0;
-	position: relative;
-	vertical-align: baseline;
-}
-
-sub {
-	bottom: -0.25em;
-}
-
-sup {
-	top: -0.5em;
-}
-
 body {
 	text-rendering: geometricprecision;
 	shape-rendering: geometricprecision;
 	text-align: left;
-	font-size: clamp(2rem, 5vw + 1rem, 4rem);
-	padding: 2rem clamp(1rem, 5vw, 4rem);
+	font-size: clamp(1rem, 5vw + 1rem, 4rem);
+	padding: clamp(1rem, 5vw + 1rem, 4rem);
 	background-color: var(--bg-color);
 	color: var(--fg-color);
 }
 
-#projects {
-	text-align: right;
-}
-
-#about {
-	text-align: center;
-}
-
 .about-me {
-	padding: 5px;
+	padding: 10px;
+}
+
+div {
+	padding: 10px;
 }
