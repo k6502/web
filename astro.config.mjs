@@ -38,5 +38,12 @@ export default defineConfig({
         "@": "/src",
       },
     },
+    ssr: {
+      external: ["canvaskit-wasm"],
+      noExternal: [],
+    },
+  },
+  build: {
+    assets: "assets",
   },
 });
