@@ -1,26 +1,42 @@
 // @ts-check
 
-import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
-import { defineConfig } from 'astro/config';
+import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
+import { defineConfig } from "astro/config";
 
-import cloudflare from '@astrojs/cloudflare';
+import cloudflare from "@astrojs/cloudflare";
 
-import markdoc from '@astrojs/markdoc';
+import markdoc from "@astrojs/markdoc";
+
+import playformInline from "@playform/inline";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://kthread.dev',
-  integrations: [mdx(), sitemap(), markdoc()],
+  site: "https://kthread.dev",
+  integrations: [
+    mdx(),
+    sitemap(),
+    markdoc(),
+    playformInline({
+      Exclude: [(file) => file.toLowerCase().includes("katex")],
+    }),
+  ],
   adapter: cloudflare({
     cloudflareModules: true,
     imageService: "compile",
     platformProxy: {
       enabled: true,
-      configPath: 'wrangler.jsonc',
+      configPath: "wrangler.jsonc",
       persist: {
-        path: './.cache/wrangler/v3'
+        path: "./.cache/wrangler/v3",
       },
     },
   }),
+  vite: {
+    resolve: {
+      alias: {
+        "@": "/src",
+      },
+    },
+  },
 });
