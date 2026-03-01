@@ -10,4 +10,4 @@ Hi! I am a 20-year-old developer from somewhere in the Internet. I love cybersec
 - **VoltixOS**, a hobbyist operating system written in C/ASM, focused on x86_64-v3 performance.
 
 > 43rd Law of Computing: Anything that can go wr
-> - fortune: Program received signal SIGSEGV, Segmentation fault.
+> fortune: Program received signal SIGSEGV, Segmentation fault (core dumped).
