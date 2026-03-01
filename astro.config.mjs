@@ -39,7 +39,7 @@ export default defineConfig({
       },
     },
     ssr: {
-      external: ["canvaskit-wasm"],
+      external: ["canvaskit-wasm", "node:crypto", "stream"],
       noExternal: [],
     },
   },
