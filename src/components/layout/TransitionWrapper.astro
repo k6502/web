@@ -1,9 +1,9 @@
 ---
-import type { TransitionProps } from '@/types'
+import type { TransitionProps } from "@/types";
 
-type Props = TransitionProps
+type Props = TransitionProps;
 
-const { class: className = '' } = Astro.props
+const { class: className = "" } = Astro.props;
 ---
 
 <div class={className} id="transition-wrapper">
@@ -13,18 +13,18 @@ const { class: className = '' } = Astro.props
 <script is:inline>
   // Cleanup hover states after Astro page load and on touch events
   function cleanupHover() {
-    const hoveredLinks = document.querySelectorAll('ul a:hover')
+    const hoveredLinks = document.querySelectorAll("ul a:hover");
     hoveredLinks.forEach((link) => {
-      link.style.opacity = ''
-    })
+      link.style.opacity = "";
+    });
   }
 
-  document.addEventListener('astro:page-load', () => {
-    setTimeout(cleanupHover, 50)
-  })
+  document.addEventListener("astro:page-load", () => {
+    setTimeout(cleanupHover, 50);
+  });
 
   // Add touch event listener for touch devices
-  document.addEventListener('touchstart', cleanupHover, { passive: true })
+  document.addEventListener("touchstart", cleanupHover, { passive: true });
 </script>
 
 <style is:inline>
@@ -44,22 +44,51 @@ const { class: className = '' } = Astro.props
 
   @keyframes fade-out {
     0% {
-      opacity: 1;
+      opacity: 0;
+      filter: blur(16px);
+      transform: translateZ(0);
+    }
+    25% {
+      opacity: 0.25;
+      filter: blur(8px);
+      transform: translateZ(0);
+    }
+    50% {
+      opacity: 0.5;
+      filter: blur(4px);
+      transform: translateZ(0);
+    }
+    75% {
+      opacity: 0.75;
+      filter: blur(2px);
+      transform: translateZ(0);
     }
     100% {
-      opacity: 0;
+      opacity: 1;
+      filter: blur(0);
+      transform: translateZ(0);
     }
   }
 
   @keyframes fade-in {
     0% {
       opacity: 0;
+      filter: blur(16px);
+      transform: translateZ(0);
+    }
+    25% {
+      opacity: 0.25;
       filter: blur(8px);
       transform: translateZ(0);
     }
-    30% {
+    50% {
       opacity: 0.5;
       filter: blur(4px);
+      transform: translateZ(0);
+    }
+    75% {
+      opacity: 0.75;
+      filter: blur(2px);
       transform: translateZ(0);
     }
     100% {

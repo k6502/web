@@ -1,10 +1,9 @@
-// @ts-check
-
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
 
 import cloudflare from "@astrojs/cloudflare";
+import { fontProviders } from "astro/config";
 
 import markdoc from "@astrojs/markdoc";
 
@@ -13,6 +12,9 @@ import playformInline from "@playform/inline";
 // https://astro.build/config
 export default defineConfig({
   site: "https://kthread.dev",
+  base: "/",
+  trailingSlash: "never",
+  root: ".",
   integrations: [
     mdx(),
     sitemap(),
@@ -22,14 +24,9 @@ export default defineConfig({
     }),
   ],
   adapter: cloudflare({
-    cloudflareModules: true,
-    imageService: "compile",
-    platformProxy: {
-      enabled: true,
-      configPath: "wrangler.jsonc",
-      persist: {
-        path: "./.cache/wrangler/v3",
-      },
+    imageService: {
+      build: "cloudflare-binding",
+      runtime: "cloudflare-binding",
     },
   }),
   vite: {
@@ -45,5 +42,11 @@ export default defineConfig({
   },
   build: {
     assets: "assets",
+    inlineStylesheets: "always",
+    concurrency: 2,
+  },
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "load",
   },
 });
