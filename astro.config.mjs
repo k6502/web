@@ -39,7 +39,6 @@ export default defineConfig({
   build: {
     assets: "assets",
     inlineStylesheets: "always",
-    concurrency: 2,
   },
   prefetch: {
     prefetchAll: true,
