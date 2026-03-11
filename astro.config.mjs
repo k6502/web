@@ -3,7 +3,6 @@ import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
 
 import cloudflare from "@astrojs/cloudflare";
-import { fontProviders } from "astro/config";
 
 import markdoc from "@astrojs/markdoc";
 
@@ -12,9 +11,6 @@ import playformInline from "@playform/inline";
 // https://astro.build/config
 export default defineConfig({
   site: "https://kthread.dev",
-  base: "/",
-  trailingSlash: "never",
-  root: ".",
   integrations: [
     mdx(),
     sitemap(),
