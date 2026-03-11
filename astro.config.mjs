@@ -11,6 +11,7 @@ import playformInline from "@playform/inline";
 // https://astro.build/config
 export default defineConfig({
   site: "https://kthread.dev",
+  output: "server",
   integrations: [
     mdx(),
     sitemap(),
