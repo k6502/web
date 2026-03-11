@@ -1,14 +1,10 @@
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
-
 import cloudflare from "@astrojs/cloudflare";
-
 import markdoc from "@astrojs/markdoc";
-
 import playformInline from "@playform/inline";
 
-// https://astro.build/config
 export default defineConfig({
   site: "https://kthread.dev",
   output: "server",
@@ -21,9 +17,7 @@ export default defineConfig({
     }),
   ],
   adapter: cloudflare({
-    imageService: {
-      imageService: { build: "compile", runtime: "cloudflare-binding" },
-    },
+    imageService: { build: "compile", runtime: "cloudflare-binding" },
   }),
   vite: {
     resolve: {
@@ -39,6 +33,7 @@ export default defineConfig({
   build: {
     assets: "assets",
     inlineStylesheets: "always",
+    concurrency: 1,
   },
   prefetch: {
     prefetchAll: true,
