@@ -17,7 +17,7 @@
     "update-theme": "tsx scripts/update-theme.ts"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.0.2",
+    "@astrojs/cloudflare": "^13.1.0",
     "@astrojs/markdoc": "^1.0.0",
     "@astrojs/mdx": "^5.0.0",
     "@astrojs/rss": "^4.0.17",
